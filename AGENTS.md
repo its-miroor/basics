@@ -9,11 +9,9 @@ A Flask web app (`app.py`) provides a browser UI so the calculator is visible in
 docker compose -f docker-compose.base44.yml up -d
 ```
 - Web UI on port 3000 (Flask dev server, auto-reloads on file change).
-- Tests run as a one-shot `test` service after the web service is healthy.
-
 ## Tests
 ```
-docker compose -f docker-compose.base44.yml run --rm test
+docker compose -f docker-compose.base44.yml run --rm web sh -c "pip install -q -r requirements.txt && python -m pytest -v"
 ```
 
 ## No external secrets required.
